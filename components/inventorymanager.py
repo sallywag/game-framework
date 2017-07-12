@@ -45,7 +45,7 @@ class InventoryManager:
 				self.items.remove(item)
 				
 	def unequip_item(self):
-		if self.is_full()):
+		if self.is_full():
 			self.items.append(item)
 			self.equipped_item = None
 				
