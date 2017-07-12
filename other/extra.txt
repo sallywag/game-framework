@@ -1,0 +1,37 @@
+class SpriteManager:
+
+	__slots__ = ['gameobject', 'sprites', '_current_sprite']
+	
+	def __init__(self, gameobject, sprites, current_sprite):
+		self.gameobject = gameobject
+		self.sprites = sprites
+		self._current_sprite = current_sprite
+		#self.reel = reel takes precedent over current sprite until empty
+	
+	@property
+	def current_sprite(self): ###NEW SPRITE REEL OBJECT along side sprite cycle
+		#if self.reel: ###WHAT IF GAP BETWEEN SPRITE TIMES !!!!!
+		#	return self.reel.pop(0)
+		elif isinstance(self._current_sprite, myutil.SpriteGroup): ###FOR ONE SPRITE
+			return self._current_sprite.get_next_sprite()
+		else: return self._current_sprite ##CURRENT SPRITE IS MIS LEADING SHOULD BE GET NEXT?
+		
+	#@current_sprite.setter	
+	#def current_sprite(self, value):
+	#	if self._current_sprite != value:
+	#		if isinstance(value, myutil.SpriteGroup):
+	#			value.reset()
+	#		self._current_sprite = value
+	#	#self._current_sprite = self.sprites[key]
+	
+	def set_current_sprite_group(self, key):
+		if self.current_sprite != self.sprites[key]:
+			if isinstance(self.sprites[key], myutil.SpriteGroup):
+				self.sprites[key].reset()
+			self.current_sprite = self.sprites[key]
+	
+	def add_to_reel(self, key):
+		try:
+			self.reel.extend(self.sprites[key])
+		except TypeError:
+			self.reel.append(self.sprites[key])
