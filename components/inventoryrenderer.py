@@ -2,7 +2,7 @@ class InventoryRenderer:
 	
 	__slots__ = ['gameobject', 'displaysurf', 'health', 'health_location']
 
-	def __init__(self, gameobject, displaysurf, health, health_location):
+	def __init__(self, gameobject, displaysurf, health, health_location=None):
 		self.gameobject = gameobject
 		self.displaysurf = displaysurf
 		self.health = health
