@@ -1,8 +1,8 @@
-import gameobject
+import gameobjects
 import components
 import pygame
 
-class Text(gameobject.GameObject):
+class Text(gameobjects.GameObject):
 	
 	def __init__(self, size, text, color, displaysurf, background=None, antialias=None, bold=False, italic=False):
 		self.font = pygame.font.SysFont(name=None, size=size, bold=bold, italic=italic)
