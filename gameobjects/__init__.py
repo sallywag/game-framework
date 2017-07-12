@@ -12,3 +12,4 @@ from gameobjects.prop import Prop
 from gameobjects.moveableprop import MoveableProp
 from gameobjects.player import Player
 from gameobjects.weapon import Weapon
+from gameobjects.text import Text
